@@ -8,6 +8,7 @@ const SingleReservation = ({ id, name, date, time, number }) => {
       <p>{date}</p>
       <p>{time}</p>
       <p>{number} people</p>
+      <button>Delete Resy</button>
     </div>
   );
 };
