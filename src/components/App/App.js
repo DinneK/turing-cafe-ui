@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Reservations from "../Reservations/Reservations";
+import Form from "../Form/Form";
 import { getReservations } from "../../apiCalls";
 import "./App.css";
 
@@ -32,11 +33,15 @@ class App extends Component {
       });
   }
 
+  addResy = (newResy) => {
+    this.setState({ reservations: [...this.state.reservations, newResy] });
+  };
+
   render() {
     return (
       <main className="App">
         <h1 className="app-title">Turing Cafe Reservations</h1>
-        <div className="resy-form"></div>
+        <Form addResy={this.addResy} />
         {/* {!this.state.reservations.length && <h2>No Reservations</h2>} */}
         {this.state.reservations.length && (
           <Reservations reservations={this.state.reservations} />
